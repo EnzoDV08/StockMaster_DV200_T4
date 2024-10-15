@@ -1,25 +1,24 @@
+// src/App.js
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import SideNav from './components/SideNav';
-import LandingPage from './components/LandingPage';
-import './App.css';
+import Home from './pages/Home';
+import Navbar from './components/Navbar';  // Import the Navbar
+import Footer from './components/Footer';  // Import the Footer
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <SideNav />
+        <Navbar />  {/* Include Navbar at the top */}
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          
         </Routes>
+        <Footer />  {/* Include Footer at the bottom */}
       </div>
     </Router>
   );
 }
 
 export default App;
-

@@ -1,0 +1,753 @@
+/* General Navbar Styling */
+.navbar {
+  background-color: #0c243b;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  position: relative;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: height 0.3s ease;
+}
+
+.navbar-content {
+  display: flex;
+  width: 100%;
+  max-width: 1300px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -40px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  color: #ed8600;
+  font-size: 34px;
+  font-weight: bold;
+  font-family: 'Eveleth Dot', sans-serif;
+}
+
+/* Sticky Logo in Second Navbar */
+.navbar-logo-sticky {
+  display: flex;
+  align-items: center;
+  height: 50px; /* Smaller logo height in sticky navbar */
+  margin-left: auto; /* Move logo to the right */
+  padding-left: 50px; /* Adjust padding to push logo to the right */
+  transition: all 0.3s ease;
+}
+
+
+.navbar-logo-sticky img {
+  height: 50px; /* Logo shrinks when sticky */
+  margin-left: 50px;
+}
+/* Hide the burger menu by default (shown on mobile only) */
+.burger-menu {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.burger-menu:hover {
+  transform: rotate(90deg);
+}
+
+/* Second Navbar (Desktop) */
+.second-navbar {
+  background-color: rgb(33, 62, 87);
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 80px;
+  position: fixed;
+  top: 155px;
+  width: 90%;
+  max-width: 1300px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: top 0.3s ease, height 0.3s ease;
+}
+
+/* When the second navbar becomes sticky */
+.sticky {
+  top: 20px;
+  height: 80px; /* Adjust the height of sticky navbar */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Logo smoothly moves further left in sticky navbar */
+.sticky .navbar-logo-sticky {
+  padding-left: 0; /* Ensure logo is pushed to the left */
+  margin-left: -20px; /* Move the logo to the far left */
+  height: 50px; /* Smaller height for the sticky state */
+}
+
+/* Cart moved to second navbar when sticky */
+.sticky .cart-moved {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.sticky .cart-moved .cart-counter {
+  background-color: #ed8600;
+  color: white;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  left: -10px;
+  cursor: pointer;
+}
+
+.cart-moved .cart-counter:hover {
+  background-color: #ed8600;
+  transform: scale(1.1);
+}
+
+.cart-moved .cart-counter:active {
+  transform: scale(0.95);
+}
+
+/* Second Navbar Content */
+.second-navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: padding-left 0.3s ease;
+}
+
+/* When sticky, text shrinks and moves closer */
+.sticky .second-navbar-item {
+  margin: 0 10px; /* Closer spacing between items */
+  font-size: 16px; /* Shrink font size when sticky */
+  transition: all 0.3s ease;
+}
+
+/* Second Navbar Items */
+.second-navbar-items-left {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Reduce the gap for the sticky state */
+  flex-wrap: nowrap; /* Prevents items from wrapping */
+  white-space: nowrap; /* Ensure text stays on one line */
+  overflow: hidden;
+}
+
+/* Normal Second Navbar */
+.second-navbar-item {
+  color: white;
+  margin: 0 20px; /* Normal spacing */
+  font-size: 20px; /* Normal font size */
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.3s ease, font-size 0.3s ease, margin 0.3s ease;
+}
+
+.second-navbar-item:hover {
+  color: #ed8600;
+  cursor: pointer;
+}
+
+/* Hover line animation */
+.second-navbar-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #ed8600;
+  bottom: -5px; /* Distance from the text */
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.second-navbar-item:hover::after {
+  width: 100%;
+}
+
+/* Dropdown menu for "Quick Find" */
+.second-navbar-item.quick-find {
+  position: relative;
+}
+
+/* Icon Styling */
+.second-navbar-item .icon {
+  margin-right: 8px;
+  transition: color 0.3s ease;
+  color: white;
+}
+
+/* Hover line animation */
+.second-navbar-item {
+  position: relative;
+}
+
+.second-navbar-item:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Icon Styling */
+.dropdown-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0c243b; /* Background color of the dropdown */
+  padding: 20px;
+  width: 100%; /* Match the width of the navbar */
+  top: 90px; /* Position it below the navbar */
+  left: 0;
+  z-index: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px); /* Dropdown starts slightly below */
+  transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Show dropdown on hover */
+.second-navbar-item.quick-find:hover .dropdown-content {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0); /* Smooth slide down effect */
+  justify-content: space-between; /* Align dropdown items */
+}
+
+/* Dropdown Item Cards */
+.dropdown-card {
+  background-color: #1b3b5a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  color: white;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.dropdown-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-card-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropdown-card ul {
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown-card ul li {
+  color: white;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+/* Arrow rotation for dropdown */
+.dropdown-arrow {
+  margin-left: 8px;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.second-navbar-item.quick-find:hover .dropdown-arrow {
+  transform: rotate(180deg); /* Rotate arrow on hover */
+}
+/* Daily Offers Button Styling */
+.daily-offers {
+  background-color: #448e9e;
+  color: #ffffff;
+  padding: 8px 20px;
+  font-size: 18px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  height: 40px;
+  width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.daily-offers:hover {
+  background-color: #48cbe9;
+  cursor: pointer;
+  transform: scale(1.15) rotate(-2deg); /* Scaling and slight rotation */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.daily-offers:active {
+  transform: scale(1.05) rotate(0deg); /* Slight reduction on click */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.daily-offers .icon {
+  margin-right: 8px;
+  transition: transform 0.4s ease, color 0.3s ease;
+  color: #203e57;
+}
+
+.daily-offers:hover .icon {
+  transform: scale(1.2) rotate(15deg); /* Adds more rotation and scaling on hover */
+  color: white;
+}
+
+/* Become Seller Button Styling */
+.become-seller {
+  background-color: #f6871e;
+  color: #fcfcfc;
+  padding: 8px 20px;
+  font-size: 17px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  height: 40px;
+  width: 150px;
+  margin-left: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.become-seller:hover {
+  background-color: #f0a65a;
+  cursor: pointer;
+  transform: scale(1.15) rotate(2deg); /* Scaling and rotation */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.become-seller:active {
+  transform: scale(1.05) rotate(0deg); /* Reduced effect on click */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.become-seller .icon {
+  margin-right: 8px;
+  transition: transform 0.4s ease, color 0.3s ease;
+  color: #203e57;
+}
+
+.become-seller:hover .icon {
+  transform: scale(1.2) rotate(-15deg); /* Adds more rotation and scaling on hover */
+  color: white;
+}
+
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  top: 40px;
+}
+
+.second-navbar-item:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: #0c243b;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0c243b;
+  padding: 20px;
+  width: 100%;
+  top: 90px;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1), transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Show dropdown smoothly when hovered */
+.second-navbar-item:hover .dropdown-content {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dropdown Item Cards */
+.dropdown-card {
+  background-color: #1b3b5a;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  color: white;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.dropdown-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-card-icon {
+  font-size: 30px;
+  color: #448e9e;
+  margin-bottom: 10px;
+}
+
+.dropdown-card-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.dropdown-card-discount {
+  font-size: 14px;
+  color: #2cb671;
+  margin-top: 5px;
+}
+
+/* Dropdown arrow with smooth rotation */
+.dropdown-arrow {
+  margin-left: 8px;
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.second-navbar-item:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+
+
+/* Logo Styling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-logo:hover {
+  opacity: 0.8;
+  transform: translateY(-3px);
+  cursor: pointer;
+}
+
+.logo-img {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  color: #ed8600;
+  font-size: 34px;
+  font-weight: bold;
+  font-family: 'Eveleth Dot', sans-serif;
+}
+
+/* Line Divider */
+.divider-line {
+  height: 70px;
+  width: 1px;
+  background-color: #fffdfd;
+  margin: 0 20px;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  margin-left: -15px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 16px 50px 16px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: #3b4f6b;
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:hover,
+.search-bar input:focus {
+  background-color: #ffffff;
+  color: #0c243b;
+}
+
+.search-btn {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  right: 10px;
+  background-color: rgb(22, 44, 64);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #ed8600;
+}
+
+.search-btn:active {
+  transform: scale(0.95);
+}
+
+.search-icon {
+  color: #ffffff;
+  font-size: 22px;
+  transition: transform 0.3s ease;
+}
+
+.search-btn:hover .search-icon {
+  transform: scale(1.1);
+}
+
+/* Navbar Icons */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-item {
+  margin-left: 20px; /* Reduced margin */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.navbar-item:hover {
+  transform: scale(1.1);
+}
+
+.navbar-item:active {
+  transform: scale(0.95);
+}
+
+/* Circle Icon Styling */
+.circle-icon {
+  background-color: #3b4f6b;
+  padding: 12px; /* Reduced padding */
+  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.circle-icon:hover {
+  background-color: #ed8600;
+  transform: scale(1.1);
+}
+
+.circle-icon:active {
+  transform: scale(0.95);
+}
+
+/* Vertical Line */
+.vertical-line {
+  border-left: 1px solid #ffffff;
+  height: 70px;
+  margin: 0 15px;
+}
+
+/* Cart Counter */
+.cart-counter {
+  background-color: #ed8600;
+  color: white;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 50%;
+  position: relative;
+  top: -5px;
+  left: -10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.cart-counter:hover {
+  background-color: #ed8600;
+  transform: scale(1.1);
+}
+
+.cart-counter:active {
+  transform: scale(0.95);
+}
+
+/* Mobile Navbar (Slide Out Menu) */
+.mobile-navbar {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0c243b;
+  padding: 50px 20px;
+  z-index: 999;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+/* Phone Text and Number */
+.phone-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+
+.phone-text {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.phone-number {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Add media query for mobile */
+@media only screen and (max-width: 768px) {
+  .mobile-navbar {
+    display: none;
+  }
+
+  .navbar {
+    height: 80px;
+    flex-direction: row;
+  }
+
+  /* Hide the unnecessary elements on mobile */
+  .search-bar, .divider-line, .phone-details, .vertical-line, .navbar-item:not(:nth-child(2)) {
+    display: none;
+  }
+
+  .navbar-logo .logo-img {
+    height: 43px;
+    margin-top: 40px;
+  }
+
+  .navbar-logo .logo-text {
+    font-size: 18px;
+    margin-top: 37px;
+  }
+
+  .burger-menu {
+    display: block;
+    position: absolute;
+    top: 26px;
+    right: 30px;
+  }
+
+  .navbar-icons {
+    position: absolute;
+    top: 15px;
+    right: 70px;
+  }
+
+  .second-navbar {
+    display: none;
+  }
+
+  .mobile-navbar.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transform: translateX(0);
+  }
+
+  .mobile-navbar a {
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    text-decoration: none;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+.hot-badge{
+  
+  background-color: rgb(219, 33, 33);
+}
+
+.hot-badge {
+  background-color: #ff6347; /* A red color similar to the one in your screenshot */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-left: 10px; /* Space between the text and the badge */
+  vertical-align: middle;
+}
+
