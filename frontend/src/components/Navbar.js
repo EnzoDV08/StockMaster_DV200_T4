@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faPhone, faHeart, faUser, faSearch, faGift, faTags, faBars, faTimes, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FaCreditCard, FaHeadset, FaChevronDown } from 'react-icons/fa';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,8 +32,10 @@ const Navbar = () => {
         <div className="navbar-content">
           {/* Logo */}
           <div className="navbar-logo">
-            <img className="logo-img" src={require('../assets/Logo.png')} alt="XtraMarket Logo" />
-            <span className="logo-text">SuperStore</span>
+             <Link to="/">
+              <img className="logo-img" src={require('../assets/Logo.png')} alt="XtraMarket Logo" />
+              <span className="logo-text">SuperStore</span>
+            </Link>
           </div>
 
           {/* Divider Line */}
@@ -64,9 +67,9 @@ const Navbar = () => {
               <FontAwesomeIcon icon={faHeart} className="circle-icon" />
             </span>
            <span className="navbar-item">
-          <Link to="/signin">
-            <FontAwesomeIcon icon={faUser} className="circle-icon" />
-          </Link>
+           <Link to="/signin">
+                <FontAwesomeIcon icon={faUser} className="circle-icon" />
+              </Link>
         </span>
           </div>
 

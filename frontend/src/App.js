@@ -1,23 +1,36 @@
-// src/App.js
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
-import Navbar from './components/Navbar';  // Import the Navbar
-import Footer from './components/Footer';  // Import the Footer
+import SignIn from './pages/SignInSignUp';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Breadcrumb from './components/Breadcrumb';
 
 function App() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/'; // Check if we are on the home page
+
+  // Determine if user is on the sign-in page or a potential "My Account" page
+  const isSignedIn = location.pathname === '/signin'; // Placeholder for now, update with actual auth state
+  
   return (
-    <Router>
-      <div className="App">
-        <Navbar />  {/* Include Navbar at the top */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          
-        </Routes>
-        <Footer />  {/* Include Footer at the bottom */}
-      </div>
-    </Router>
+    <div className="App">
+      {/* Navbar will always be at the top */}
+      <Navbar />
+      
+      {/* Breadcrumbs will only show if it's not the home page */}
+      {!isHomePage && <Breadcrumb isSignedIn={isSignedIn} />}
+      
+      {/* Routes for page navigation */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signin" element={<SignIn />} />
+        {/* Add more routes here as needed */}
+      </Routes>
+      
+      {/* Footer will always be at the bottom */}
+      <Footer />
+    </div>
   );
 }
 

@@ -9,10 +9,11 @@
   position: relative;
   box-sizing: border-box;
   height: 700px;
+   z-index: 2;
 }
 .hero-content {
   max-width: 600px;
-  z-index: 2;
+ 
   margin-left: 250px;
 }
 

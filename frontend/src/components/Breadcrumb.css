@@ -1,0 +1,79 @@
+/* Breadcrumb container with flexbox layout */
+.breadcrumb-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  font-size: 16px; /* Same font size */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif; /* Ensure this font matches the rest of the site */
+  position: relative;
+  top: 0; /* Ensure the breadcrumb stays right below the navbar */
+  height: 100px;
+}
+
+/* Left side: Page title */
+.breadcrumb-left h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333333;
+  margin-top: 70px;
+  margin-left: 290px;
+}
+
+/* Right side: Breadcrumb navigation */
+.breadcrumb-right nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 300px;
+  margin-top: 50px;
+}
+
+/* Breadcrumb list */
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin: 0; /* Remove margin to eliminate any gap */
+}
+
+/* Breadcrumb items */
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  padding: 0 10px;
+  color: #6f6f6f;
+}
+
+/* Breadcrumb links */
+.breadcrumb-item a {
+  text-decoration: none;
+  color: #6f6f6f;
+  font-weight: bold;
+}
+
+.breadcrumb-item a:hover {
+  color: #ed8600; /* Accent color */
+}
+
+/* Active breadcrumb item (current page) */
+.breadcrumb-item.active {
+  color: #333333;
+}
+
+/* Home icon styling */
+.breadcrumb-item a svg {
+  font-size: 18px;
+  color: #6f6f6f;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover svg {
+  color: #ed8600; /* Match the hover color with links */
+}

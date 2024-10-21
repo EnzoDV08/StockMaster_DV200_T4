@@ -7,9 +7,9 @@
   align-items: center;
   padding: 0 20px;
   position: relative;
-  z-index: 999;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: height 0.3s ease;
+  z-index: 999;
 }
 
 .navbar-content {
@@ -36,8 +36,9 @@
   font-size: 34px;
   font-weight: bold;
   font-family: 'Eveleth Dot', sans-serif;
+  text-decoration: none;
+  line-height: 1; /* Ensures there’s no extra spacing between lines */
 }
-
 /* Sticky Logo in Second Navbar */
 .navbar-logo-sticky {
   display: flex;
